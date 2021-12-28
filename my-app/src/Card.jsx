@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Card(){
+function Card(props){
     return <div>
 
-        <h3>Fulano da Silva</h3>
-        <p>email@servico.com</p>
-        <p>(00) 0000-0000</p>
+        <h3>{props.nome}</h3>
+        <p>{props.email}</p>
+        <p>{props.telefone}</p>
 
     </div>
 }
