@@ -1,23 +1,16 @@
 import React from 'react';
-import Header from './Header';
-import Card from './Card';
-import Footer from './Footer';
-import clientes from './clientes';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
-function createCard(cliente) {
-    return <Card 
-    key={cliente.id}
-    nome={cliente.nome}
-    email={cliente.email}
-    telefone={cliente.telefone} />
-}
+import Site from './site/site';
+import Login from './app/login';
 
 function App() {
-    return <div>
-        <Header />
-        {clientes.map(createCard)}
-        <Footer />
-    </div>
+    return <BrowserRouter>
+    <Routes>
+        <Route exact path='/' element={<Site/>} />
+        <Route exact path='/app' element={<Login/>} />
+    </Routes>
+    </BrowserRouter>
 }
 
 export default App;
