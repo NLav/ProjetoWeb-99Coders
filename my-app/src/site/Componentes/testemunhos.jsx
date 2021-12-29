@@ -3,6 +3,10 @@ import React from "react";
 function Testemunhos() {
     return <section id="testemunhos">
         <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div className="pricing-header">
+                <h1 className="display-4 fw-normal">Clientes</h1>
+                <p className="fs-5 text-muted">Planos e opções de acordo com a necessidade da sua empresa!</p>
+            </div>
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
