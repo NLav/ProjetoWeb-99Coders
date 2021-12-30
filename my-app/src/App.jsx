@@ -7,8 +7,8 @@ import Login from './app/login';
 function App() {
     return <BrowserRouter>
     <Routes>
-        <Route path='/' element={<Site/>} />
-        <Route exact path='/app' element={<Login/>} />
+        <Route path='/reactn' element={<Site/>} />
+        <Route exact path='/reactn/app' element={<Login/>} />
     </Routes>
     </BrowserRouter>
 }
