@@ -13,14 +13,6 @@ function Login() {
     
     const auth = getAuth();
 
-    function AlterarEmail (event) {
-        setEmail(event.target.value);
-    }    
-
-    function AlterarSenha (event) {
-        setSenha(event.target.value);
-    }    
-
     function LoginUsuario () {
         signInWithEmailAndPassword(auth, email, senha)
             .then(function(firebaseUser){
@@ -31,7 +23,7 @@ function Login() {
                 alert(error);
                 setErro('S')
             });
-    }    
+    }
     
     return <section className="d-flex align-items-center text-center form-container" id="section-login">
 
@@ -43,12 +35,12 @@ function Login() {
             <h1 className="h3 mb-3 fw-normal">Acesse sua conta</h1>
 
             <div className="form-floating">
-                <input onChange={AlterarEmail} type="email" className="form-control form-control-login" id="floatingInput" placeholder="name@example.com" />
-                <label for="floatingInput">Endereço de e-mail</label>
+                <input onChange={e => setEmail(e.target.value)} type="email" className="form-control form-control-login" id="floatingInput" placeholder="name@example.com" />
+                <label htmlFor="floatingInput">Endereço de e-mail</label>
             </div>
             <div className="form-floating">
-                <input onChange={AlterarSenha} type="password" className="form-control form-control-login" id="floatingPassword" placeholder="Password" />
-                <label for="floatingPassword">Senha</label>
+                <input onChange={e => setSenha(e.target.value)} type="password" className="form-control form-control-login" id="floatingPassword" placeholder="Password" />
+                <label htmlFor="floatingPassword">Senha</label>
             </div>
                 
             <button className="w-100 btn btn-lg btn-success" type="button" onClick={LoginUsuario}>Acessar</button>

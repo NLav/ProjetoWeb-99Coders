@@ -14,7 +14,7 @@ function MudarSenha() {
 
             <div className="form-floating">
                 <input type="email" className="form-control form-control-login" id="floatingInput" placeholder="name@example.com" />
-                <label for="floatingInput">Endereço de e-mail</label>
+                <label htmlFor="floatingInput">Endereço de e-mail</label>
             </div>
 
             <button className="w-100 btn btn-lg btn-success" type="submit">Enviar</button>
