@@ -8,8 +8,8 @@ function Banner() {
                     <h1>Desenvolvimento de aplicações de qualquer porte ou finalidade</h1>
                     <h1>Consultoria para sua pequena, média ou grande empresa</h1>
                     
-                    <a href="/reactn/app/registrar" className="btn btn-outline-primary mt-3 me-4">Criar conta</a>
-                    <a href="/reactn/app" className="btn btn-outline-success mt-3">Fazer login</a>
+                    <a href="/app/registrar" className="btn btn-outline-primary mt-3 me-4">Criar conta</a>
+                    <a href="/app" className="btn btn-outline-success mt-3">Fazer login</a>
                     
                 </div>
                 <div className="col-lg-6 mt-5">

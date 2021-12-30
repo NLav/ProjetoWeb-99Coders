@@ -6,7 +6,7 @@ function Navbar() {
     return <nav id="navbar" className="navbar fixed-top navbar-expand-lg navbar-dark">
     <div className="container">
       <a classNameName="navbar-brand" href="#">
-          <img className="me-2" src="/reactn/Images/logo_nr-dev-con.png" alt="" height="60" />
+          <img className="me-2" src="/Images/logo_nr-dev-con.png" alt="" height="60" />
       </a>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
@@ -14,13 +14,13 @@ function Navbar() {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mb-2 mb-lg-0 me-auto">
           <li className="nav-item">
-            <Link to={"/reactn/app/home"} className="nav-link">Home</Link>
+            <Link to={"/app/home"} className="nav-link">Home</Link>
           </li>
           <li className="nav-item">
-            <Link to={"/reactn/app/novocliente"} className="nav-link">Cadastrar cliente</Link>
+            <Link to={"/app/novocliente"} className="nav-link">Cadastrar cliente</Link>
           </li>
           <li className="nav-item">
-            <Link to={"/reactn/app"} className="nav-link">Sair</Link>
+            <Link to={"/app"} className="nav-link">Sair</Link>
           </li>
         </ul>
         <form className="d-flex">
