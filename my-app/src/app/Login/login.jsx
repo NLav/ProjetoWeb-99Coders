@@ -16,11 +16,9 @@ function Login() {
     function LoginUsuario () {
         signInWithEmailAndPassword(auth, email, senha)
             .then(function(firebaseUser){
-                alert('sucesso');
                 setErro('N');
             })
             .catch(function(error){
-                alert(error);
                 setErro('S')
             });
     }

@@ -1,9 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from 'react-router-dom';
+import appFirebase from '../Config/firebase';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import './registrar.css';
 
 function Registrar() {
     var ano = new Date().getFullYear();
+
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const [mensagem, setMensagem] = useState('');
+
+    const auth = getAuth();
+
+
+    function RegistrarUsuario() {
+
+        setMensagem('');
+
+        if (!email || !senha) {
+            setMensagem('Preencha todos os campos!');
+            return
+        }
+        createUserWithEmailAndPassword(auth, email, senha)
+            .then(firebaseUser => {
+                alert('Usuário cadastrado com sucesso!');
+            })
+            .catch(error => {
+
+                if (error.message === 'Firebase: Password should be at least 6 characters (auth/weak-password).') {
+                    setMensagem('A senha deve possuir pelo menos 6 caracteres!');
+                } else if (error.message === 'Firebase: Error (auth/invalid-email).') {
+                    setMensagem('E-mail inválido!');
+                } else if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
+                    setMensagem('O e-mail já está em uso por outra conta!')
+                } else {
+                    setMensagem('Erro ao criar conta: ' + error.message);
+                }
+
+            });
+    }
+
     return <section className="d-flex align-items-center text-center form-container" id="section-registrar">
 
         <form className="form-sign">
@@ -13,19 +50,24 @@ function Registrar() {
             <h1 className="h3 mb-3 fw-normal">Crie uma conta</h1>
 
             <div className="form-floating">
-                <input type="email" className="form-control form-control-registrar" id="floatingInput" placeholder="name@example.com" />
+                <input onChange={e => setEmail(e.target.value)} type="email" className="form-control form-control-registrar" id="floatingInput" placeholder="name@example.com" />
                 <label htmlFor="floatingInput">Endereço de e-mail</label>
             </div>
             <div className="form-floating">
-                <input type="password" className="form-control form-control-registrar" id="floatingPassword" placeholder="Password" />
+                <input onChange={e => setSenha(e.target.value)} type="password" className="form-control form-control-registrar" id="floatingPassword" placeholder="Password" />
                 <label htmlFor="floatingPassword">Senha</label>
             </div>
+
             <div className="form-floating">
-                <input type="password" className="form-control form-control-registrar" id="floatingPassword" placeholder="Password" />
+                <input type="password" className="form-control form-control-registrar" id="floatingConfirmPassword" placeholder="Password" />
                 <label htmlFor="floatingPassword">Confirmar Senha</label>
             </div>
 
-            <Link className="w-100 btn btn-lg btn-success" to={"/app"}>Criar conta</Link>
+            <button className="w-100 btn btn-lg btn-success" type="button" onClick={RegistrarUsuario}>Criar conta</button>
+
+            {
+                mensagem !== '' ? <div className="alert alert-danger mt-2"> {mensagem} </div> : null
+            }
 
             <div className="link-possuo mt-2 text-start">
                 <Link to={"/app"}>Já possuo uma conta</Link>
