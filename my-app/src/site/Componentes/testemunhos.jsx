@@ -3,7 +3,7 @@ import React from "react";
 function Testemunhos() {
     return <section id="testemunhos">
         <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="carousel">
-            <div className="pricing-header">
+            <div className="pricing-header p-3 pb-md-4">
                 <h1 className="display-4 fw-normal">Clientes</h1>
                 <p className="fs-5 text-muted">Planos e opções de acordo com a necessidade da sua empresa!</p>
             </div>
