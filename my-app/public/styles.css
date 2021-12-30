@@ -43,6 +43,16 @@ input {
     padding: 70px 0 40px 0;
 }
 
+.h1-banner {
+    text-decoration: underline dotted;
+    text-decoration-thickness: 2px;
+}
+
+.btn-banner-crm {
+    width: 200px;
+    margin: 0px 10px 0px 10px;
+}
+
 .form-banner {
     display: inline;
 }

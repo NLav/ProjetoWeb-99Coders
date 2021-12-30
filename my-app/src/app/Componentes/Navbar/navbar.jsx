@@ -5,9 +5,9 @@ import './navbar.css';
 function Navbar() {
     return <nav id="navbar" className="navbar fixed-top navbar-expand-lg navbar-dark">
     <div className="container">
-      <a classNameName="navbar-brand" href="#">
+      <Link classNameName="navbar-brand" to={"/app/home"}>
           <img className="me-2" src="/Images/logo_nr-dev-con.png" alt="" height="60" />
-      </a>
+      </Link>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>

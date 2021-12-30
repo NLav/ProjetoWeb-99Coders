@@ -7,14 +7,15 @@ function Banner() {
                 <div className="col-lg-6">
                     <h1>Desenvolvimento de aplicações de qualquer porte ou finalidade</h1>
                     <h1>Consultoria para sua pequena, média ou grande empresa</h1>
-                    
-                    <a href="/app/registrar" className="btn btn-outline-primary mt-3 me-4">Criar conta</a>
-                    <a href="/app" className="btn btn-outline-success mt-3">Fazer login</a>
-                    
                 </div>
-                <div className="col-lg-6 mt-5">
+                <div className="col-lg-6 mt-3">
                     <img src="Images/print_vs-code.png" />
                 </div>
+            </div>
+            <div className="row">
+                <h1 className="h1-banner">Teste nosso sistema de CRM</h1>
+                <a href="/app/registrar" className="btn btn-outline-primary btn-banner-crm mt-3 ms-auto">Criar conta</a>
+                <a href="/app" className="btn btn-outline-success btn-banner-crm mt-3 me-auto">Fazer login</a>
             </div>
         </div>
     </section>
