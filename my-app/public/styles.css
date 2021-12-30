@@ -11,6 +11,10 @@ section {
     border-bottom: 1px solid #E8641B;
 }
 
+input {
+    background-color: #2F3136;
+}
+
 #menu {
     border-bottom: 1px solid #E8641B;
 }
@@ -38,6 +42,43 @@ section {
 #footer {
     padding: 70px 0 40px 0;
 }
+
+#section-login {
+    border: none;
+}
+
+.form-container {
+    height: 100vh;
+}
+
+.form-signin {
+    max-width: 330px;
+    margin: auto
+}
+
+.form-control {
+    background-color: #2F3136;
+    color: lightgray;
+}
+
+.form-floating-busca {
+    color: #E8641B;
+    margin-right: 10px;
+}
+
+.form-control-busca {
+    border: 1px solid #E8641B;
+}
+
+.form-control-login {
+    background-color: #2F3136;
+    margin-bottom: 10px;
+    border: 1px solid #E8641B;
+}
+
+#m.link-esqueci a {
+    color: #E8641B;
+}    
 
 .navbar {
     background-color: #2F3136;
