@@ -4,6 +4,7 @@ section {
     text-align: center;
     border-top: 1px solid #E8641B;
     border-bottom: 1px solid #E8641B;
+    overflow: auto;
 }
 
 input {

@@ -3,7 +3,7 @@ import React from "react";
 function Banner() {
     return <section id="banner">
         <div className="container">
-            <div className="row">
+            <div className="row mb-2">
                 <div className="col-lg-6">
                     <h1>Desenvolvimento de aplicações de qualquer porte ou finalidade</h1>
                     <h1>Consultoria para sua pequena, média ou grande empresa</h1>
@@ -12,8 +12,8 @@ function Banner() {
                     <img src="Images/print_vs-code.png" />
                 </div>
             </div>
-            <div className="row">
-                <h1 className="h1-banner">Teste nosso sistema de CRM</h1>
+            <div className="row container container-banner-crm">
+                <h1>Teste nosso sistema de CRM</h1>
                 <a href="/app/registrar" className="btn btn-outline-primary btn-banner-crm mt-3 ms-auto">Criar conta</a>
                 <a href="/app" className="btn btn-outline-success btn-banner-crm mt-3 me-auto">Fazer login</a>
             </div>

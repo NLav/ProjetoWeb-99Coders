@@ -43,9 +43,9 @@ input {
     padding: 70px 0 40px 0;
 }
 
-.h1-banner {
-    text-decoration: underline dotted;
-    text-decoration-thickness: 2px;
+.container-banner-crm {
+    border: 1px dashed #E8641B;
+    padding: 0px 0px 20px 0px;
 }
 
 .btn-banner-crm {
