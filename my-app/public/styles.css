@@ -43,15 +43,11 @@ input {
     padding: 70px 0 40px 0;
 }
 
-#section-login {
-    border: none;
+.form-banner {
+    display: inline;
 }
 
-.form-container {
-    height: 100vh;
-}
-
-.form-signin {
+.form-sign {
     max-width: 330px;
     margin: auto
 }
@@ -69,16 +65,6 @@ input {
 .form-control-busca {
     border: 1px solid #E8641B;
 }
-
-.form-control-login {
-    background-color: #2F3136;
-    margin-bottom: 10px;
-    border: 1px solid #E8641B;
-}
-
-#m.link-esqueci a {
-    color: #E8641B;
-}    
 
 .navbar {
     background-color: #2F3136;

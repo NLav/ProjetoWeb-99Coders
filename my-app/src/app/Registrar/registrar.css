@@ -1,0 +1,39 @@
+section {
+    background-color: #2F3136;
+    color: #E8641B;
+    text-align: center;
+    border-top: 1px solid #E8641B;
+    border-bottom: 1px solid #E8641B;
+}
+
+input {
+    background-color: #2F3136;
+}
+
+#section-registrar {
+    border: none;
+}
+
+.form-container {
+    height: 100vh;
+}
+
+.form-sign {
+    max-width: 330px;
+    margin: auto
+}
+
+.form-control {
+    background-color: #2F3136;
+    color: lightgray;
+}
+
+.form-control-registrar {
+    background-color: #2F3136;
+    margin-bottom: 10px;
+    border: 1px solid #E8641B;
+}
+
+.link-possuo a {
+    color: #E8641B;
+}
