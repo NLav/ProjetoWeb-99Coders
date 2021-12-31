@@ -13,32 +13,35 @@ function Registrar() {
 
     const auth = getAuth();
 
-
     function RegistrarUsuario() {
 
         setMensagem('');
 
         if (!email || !senha) {
+
             setMensagem('Preencha todos os campos!');
             return
+        
+        } else {
+
+            createUserWithEmailAndPassword(auth, email, senha)
+                .then(firebaseUser => {
+                    alert('Usuário cadastrado com sucesso!');
+                })
+                .catch(error => {
+
+                    if (error.message === 'Firebase: Password should be at least 6 characters (auth/weak-password).') {
+                        setMensagem('A senha deve possuir pelo menos 6 caracteres!');
+                    } else if (error.message === 'Firebase: Error (auth/invalid-email).') {
+                        setMensagem('E-mail inválido!');
+                    } else if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
+                        setMensagem('O e-mail já está em uso por outra conta!')
+                    } else {
+                        setMensagem('Erro ao criar conta: ' + error.message);
+                    }
+                    
+                });
         }
-        createUserWithEmailAndPassword(auth, email, senha)
-            .then(firebaseUser => {
-                alert('Usuário cadastrado com sucesso!');
-            })
-            .catch(error => {
-
-                if (error.message === 'Firebase: Password should be at least 6 characters (auth/weak-password).') {
-                    setMensagem('A senha deve possuir pelo menos 6 caracteres!');
-                } else if (error.message === 'Firebase: Error (auth/invalid-email).') {
-                    setMensagem('E-mail inválido!');
-                } else if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
-                    setMensagem('O e-mail já está em uso por outra conta!')
-                } else {
-                    setMensagem('Erro ao criar conta: ' + error.message);
-                }
-
-            });
     }
 
     return <section className="d-flex align-items-center text-center form-container" id="section-registrar">

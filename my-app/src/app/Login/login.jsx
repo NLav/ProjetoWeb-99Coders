@@ -1,11 +1,14 @@
-import React, {useState} from "react";
-import {Link} from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import appFirebase from '../Config/firebase';
 import { getAuth, signInWithEmailAndPassword  } from "firebase/auth";
 import './login.css';
 
 function Login() {
     var ano = new Date().getFullYear();
+
+    let navigate = useNavigate();
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
@@ -14,13 +17,19 @@ function Login() {
     const auth = getAuth();
 
     function LoginUsuario () {
-        signInWithEmailAndPassword(auth, email, senha)
-            .then(function(firebaseUser){
-                setErro('N');
-            })
-            .catch(function(error){
-                setErro('S')
-            });
+
+        if (!email || !senha) {
+            setErro('S');
+        } else {
+            signInWithEmailAndPassword(auth, email, senha)
+                .then(firebaseUser => {
+                    setErro('N');
+                    navigate('/app/home');
+                })
+                .catch(error => {
+                    setErro('S');
+                });
+        }
     }
     
     return <section className="d-flex align-items-center text-center form-container" id="section-login">
@@ -46,7 +55,7 @@ function Login() {
             {
                 erro === 'S' ? <div className="alert alert-danger mt-2">E-mail ou Senha inválidos</div> : null
             }
-                
+            
             <div className="link-esqueci mt-2 text-start">
                 <Link to={"/app/mudarsenha"}>Esqueci minha senha</Link>
             </div>
