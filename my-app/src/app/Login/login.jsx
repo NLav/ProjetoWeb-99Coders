@@ -24,7 +24,7 @@ function Login() {
             signInWithEmailAndPassword(auth, email, senha)
                 .then(firebaseUser => {
                     setErro('N');
-                    navigate('/app/home');
+                    navigate('/reactn/app/home');
                 })
                 .catch(error => {
                     setErro('S');
@@ -34,8 +34,8 @@ function Login() {
     
     return <section className="d-flex align-items-center text-center form-container" id="section-login">
 
-        <form action="/app/home" className="form-sign">
-            <a href="/">
+        <form action="/reactn/app/home" className="form-sign">
+            <a href="/reactn">
                 <img className="mb-4" src="Images/logo_nr-dev-con-small.png" alt="" width="72" height="72" />
             </a>
             
@@ -57,10 +57,10 @@ function Login() {
             }
             
             <div className="link-esqueci mt-2 text-start">
-                <Link to={"/app/mudarsenha"}>Esqueci minha senha</Link>
+                <Link to={"/reactn/app/mudarsenha"}>Esqueci minha senha</Link>
             </div>
 
-            <Link to={"/app/registrar"} className="w-100 btn btn-lg btn-outline-primary mt-5">Criar conta</Link>
+            <Link to={"/reactn/app/registrar"} className="w-100 btn btn-lg btn-outline-primary mt-5">Criar conta</Link>
 
             <p className="mt-5 mb-3 text-muted">Desenvolvido por NR Desenvolvimento e Consultoria - {ano}</p>
         </form>
