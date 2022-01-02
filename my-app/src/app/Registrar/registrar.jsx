@@ -1,47 +1,47 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router';
-import appFirebase from '../Config/firebase';
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
+import appFirebase from "../Config/firebase";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import './registrar.css';
+import "./registrar.css";
 
 function Registrar() {
     var ano = new Date().getFullYear();
 
     let navigate = useNavigate();
 
-    const [email, setEmail] = useState('');
-    const [senha, setSenha] = useState('');
-    const [mensagem, setMensagem] = useState('');
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+    const [mensagem, setMensagem] = useState("");
 
     const auth = getAuth();
 
     function RegistrarUsuario() {
 
-        setMensagem('');
+        setMensagem("");
 
         if (!email || !senha) {
 
-            setMensagem('Preencha todos os campos!');
+            setMensagem("Preencha todos os campos!");
             return
         
         } else {
 
             createUserWithEmailAndPassword(auth, email, senha)
                 .then(firebaseUser => {
-                    alert('Usuário cadastrado com sucesso!');
-                    navigate('/app');
+                    alert("Usuário cadastrado com sucesso!");
+                    navigate("/app");
                 })
                 .catch(error => {
 
-                    if (error.message === 'Firebase: Password should be at least 6 characters (auth/weak-password).') {
-                        setMensagem('A senha deve possuir pelo menos 6 caracteres!');
-                    } else if (error.message === 'Firebase: Error (auth/invalid-email).') {
-                        setMensagem('E-mail inválido!');
-                    } else if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
-                        setMensagem('O e-mail já está em uso por outra conta!')
+                    if (error.message === "Firebase: Password should be at least 6 characters (auth/weak-password).") {
+                        setMensagem("A senha deve possuir pelo menos 6 caracteres!");
+                    } else if (error.message === "Firebase: Error (auth/invalid-email).") {
+                        setMensagem("E-mail inválido!");
+                    } else if (error.message === "Firebase: Error (auth/email-already-in-use).") {
+                        setMensagem("O e-mail já está em uso por outra conta!")
                     } else {
-                        setMensagem('Erro ao criar conta: ' + error.message);
+                        setMensagem("Erro ao criar conta: " + error.message);
                     }
                     
                 });
@@ -73,7 +73,7 @@ function Registrar() {
             <button className="w-100 btn btn-lg btn-success" type="button" onClick={RegistrarUsuario}>Criar conta</button>
 
             {
-                mensagem !== '' ? <div className="alert alert-danger mt-2"> {mensagem} </div> : null
+                mensagem !== "" ? <div className="alert alert-danger mt-2"> {mensagem} </div> : null
             }
 
             <div className="link-possuo mt-2 text-start">

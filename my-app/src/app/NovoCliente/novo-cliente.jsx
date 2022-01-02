@@ -1,5 +1,5 @@
 import React from "react";
-import './novo-cliente.css';
+import "./novo-cliente.css";
 
 function NovoCliente() {
     return <div>

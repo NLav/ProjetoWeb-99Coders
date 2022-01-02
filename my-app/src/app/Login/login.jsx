@@ -1,33 +1,33 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router';
-import appFirebase from '../Config/firebase';
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
+import appFirebase from "../Config/firebase";
 import { getAuth, signInWithEmailAndPassword  } from "firebase/auth";
-import './login.css';
+import "./login.css";
 
 function Login() {
     var ano = new Date().getFullYear();
 
     let navigate = useNavigate();
 
-    const [email, setEmail] = useState('');
-    const [senha, setSenha] = useState('');
-    const [erro, setErro] = useState('N');
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+    const [erro, setErro] = useState("N");
     
     const auth = getAuth();
 
     function LoginUsuario () {
 
         if (!email || !senha) {
-            setErro('S');
+            setErro("S");
         } else {
             signInWithEmailAndPassword(auth, email, senha)
                 .then(firebaseUser => {
-                    setErro('N');
-                    navigate('/app/home');
+                    setErro("N");
+                    navigate("/app/home");
                 })
                 .catch(error => {
-                    setErro('S');
+                    setErro("S");
                 });
         }
     }
@@ -53,7 +53,7 @@ function Login() {
             <button className="w-100 btn btn-lg btn-success" type="button" onClick={LoginUsuario}>Acessar</button>
 
             {
-                erro === 'S' ? <div className="alert alert-danger mt-2">E-mail ou Senha inválidos</div> : null
+                erro === "S" ? <div className="alert alert-danger mt-2">E-mail ou Senha inválidos</div> : null
             }
             
             <div className="link-esqueci mt-2 text-start">

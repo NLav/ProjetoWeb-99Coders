@@ -1,39 +1,39 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
-import './mudar-senha.css';
+import "./mudar-senha.css";
 
 function MudarSenha() {
     var ano = new Date().getFullYear();
 
-    const [email, setEmail] = useState('');
-    const [mensagem, setMensagem] = useState('');
+    const [email, setEmail] = useState("");
+    const [mensagem, setMensagem] = useState("");
 
     const auth = getAuth();
 
     function EnviarEmail () {
         
-        setMensagem('');
+        setMensagem("");
 
         if (!email) {
             
-            setMensagem('Preencha o campo!');
+            setMensagem("Preencha o campo!");
         
         } else {
 
             sendPasswordResetEmail(auth, email)
                 .then(firebaseUser => {
-                    setMensagem('sucesso');
+                    setMensagem("sucesso");
                 })
                 .catch(error => {
-                    if (error.message === 'Firebase: Password should be at least 6 characters (auth/weak-password).') {
-                        setMensagem('A senha deve possuir pelo menos 6 caracteres!');
-                    } else if (error.message === 'Firebase: Error (auth/invalid-email).') {
-                        setMensagem('E-mail inválido!');
-                    } else if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
-                        setMensagem('O e-mail já está em uso por outra conta!')
+                    if (error.message === "Firebase: Password should be at least 6 characters (auth/weak-password).") {
+                        setMensagem("A senha deve possuir pelo menos 6 caracteres!");
+                    } else if (error.message === "Firebase: Error (auth/invalid-email).") {
+                        setMensagem("E-mail inválido!");
+                    } else if (error.message === "Firebase: Error (auth/email-already-in-use).") {
+                        setMensagem("O e-mail já está em uso por outra conta!")
                     } else {
-                        setMensagem('Erro ao criar conta: ' + error.message);
+                        setMensagem("Erro ao criar conta: " + error.message);
                     }
                 })
 
@@ -61,9 +61,9 @@ function MudarSenha() {
             </div>
 
             {
-                mensagem === 'sucesso' 
+                mensagem === "sucesso" 
                     ? <div className="alert alert-success mt-2"> E-mail enviado com sucesso </div> 
-                    : mensagem === ''
+                    : mensagem === ""
                         ? null
                         : <div className="alert alert-danger mt-2"> {mensagem} </div>
             }
