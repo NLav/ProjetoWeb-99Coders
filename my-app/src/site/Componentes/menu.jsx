@@ -28,7 +28,6 @@ function Menu() {
           </li>
         </ul>
         <form className="d-flex">
-          {/*<input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="floatingInput"/>*/}
           <div className="form-floating form-floating-busca">
             <input type="search" className="form-control form-control-busca" placeholder="buscar" />
             <label htmlFor="floatingInput">Buscar</label>

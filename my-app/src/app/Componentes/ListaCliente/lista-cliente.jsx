@@ -1,53 +1,42 @@
-import React, { useEffect, useState } from "react";
-import { collection, onSnapshot } from "firebase/firestore";
-import db from "../../Config/firebase";
+import React from "react";
+import { Link } from "react-router-dom";
 import "./lista-cliente.css";
 
-/*
-import { doc, getDoc } from "firebase/firestore";
+function ListaClientes(props) {
 
-const docRef = doc(db, "cities", "SF");
-const docSnap = await getDoc(docRef);
+    function editarUsuario(id) {
+        alert("editar usuario" + id);
+    }
+    
+    function deletarUsuario(id) {
+        alert("deletar usuario" + id);
+    }
 
-if (docSnap.exists()) {
-  console.log("Document data:", docSnap.data());
-} else {
-  // doc.data() will be undefined in this case
-  console.log("No such document!");
-}
-*/
-
-function ListaClientes() {
-
-    const [clientes, setClientes] = useState([]);
-
-    useEffect(() => {
-        onSnapshot(collection(db, "clientes"), clientes =>
-            setClientes(clientes.docs.map(cliente => ({ ...cliente.data(), id: cliente.id })))
-        )
-    }, [])
-
-    return <table className="table table-dark table-hover table-bordered">
+    return <table className="table table-dark table-hover table-bordered mx-auto">
         <thead>
             <tr>
                 <th scope="col">Código</th>
                 <th scope="col">Nome</th>
                 <th scope="col">E-mail</th>
                 <th scope="col">Telefone</th>
+                <th scope="col">Ações</th>
             </tr>
         </thead>
         <tbody>
             {
-                clientes.map(cliente =>
+                props.arrayClientes.map(cliente =>
                     <tr key={cliente.id}>
                         <th scope="col">{cliente.id}</th>
                         <th scope="col">{cliente.nome}</th>
                         <th scope="col">{cliente.email}</th>
                         <th scope="col">{cliente.telefone}</th>
+                        <th scope="col" className="text-center">
+                            <Link to="#" onClick={() => editarUsuario(cliente.id)} className="me-2 ms-auto"><img className="img-icon-acoes" src="/Images/ic_edit.png" /></Link>
+                            <Link to="#" onClick={() => deletarUsuario(cliente.id)} className="ms-2 me-auto"><img className="img-icon-acoes" src="/Images/ic_delete.png" /></Link>
+                        </th>
                     </tr>
                 )
             }
-
         </tbody>
     </table>
 }

@@ -10,3 +10,18 @@
 .titulo-clientes {
     margin-top: 90px;
 }
+
+.form-floating-busca {
+    color: #E8641B;
+    width: 80%;
+    margin-right: 10px;
+}
+
+.form-control-busca {
+    border: 1px solid #E8641B;
+    margin-right: 10px;    
+}
+
+.btn-cliente-adicionar {
+    width: 150px;
+}

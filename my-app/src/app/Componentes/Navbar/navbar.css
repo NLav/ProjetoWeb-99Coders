@@ -11,15 +11,6 @@ input {
     color: lightgray;
 }
 
-.form-floating-busca {
-    color: #E8641B;
-    margin-right: 10px;
-}
-
-.form-control-busca {
-    border: 1px solid #E8641B;
-}
-
 .navbar {
     background-color: #2F3136;
 }
