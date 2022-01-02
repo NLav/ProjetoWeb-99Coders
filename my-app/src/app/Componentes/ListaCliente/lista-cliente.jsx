@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { collection, onSnapshot } from "firebase/firestore";
+import db from "../../Config/firebase";
 import "./lista-cliente.css";
-import "../../Dados/clientes"
-import clientes from "../../Dados/clientes";
+
+/*
+import { doc, getDoc } from "firebase/firestore";
+
+const docRef = doc(db, "cities", "SF");
+const docSnap = await getDoc(docRef);
+
+if (docSnap.exists()) {
+  console.log("Document data:", docSnap.data());
+} else {
+  // doc.data() will be undefined in this case
+  console.log("No such document!");
+}
+*/
 
 function ListaClientes() {
+
+    const [clientes, setClientes] = useState([]);
+
+    useEffect(() => {
+        onSnapshot(collection(db, "clientes"), clientes =>
+            setClientes(clientes.docs.map(cliente => ({ ...cliente.data(), id: cliente.id })))
+        )
+    }, [])
+
     return <table className="table table-dark table-hover table-bordered">
         <thead>
             <tr>
@@ -14,7 +37,6 @@ function ListaClientes() {
             </tr>
         </thead>
         <tbody>
-
             {
                 clientes.map(cliente =>
                     <tr key={cliente.id}>
