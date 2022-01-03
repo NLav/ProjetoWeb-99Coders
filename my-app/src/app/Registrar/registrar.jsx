@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
-import appFirebase from "../Config/firebase";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import "./registrar.css";
 
@@ -12,6 +11,7 @@ function Registrar() {
 
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
+    const [confirmarSenha, setConfirmarSenha] = useState("");
     const [mensagem, setMensagem] = useState("");
 
     const auth = getAuth();
@@ -20,11 +20,16 @@ function Registrar() {
 
         setMensagem("");
 
-        if (!email || !senha) {
+        if (!email || !senha || !confirmarSenha) {
 
             setMensagem("Preencha todos os campos!");
             return
         
+        } else if (senha !== confirmarSenha) {
+
+            setMensagem("As senhas não são iguais!");
+            return
+
         } else {
 
             createUserWithEmailAndPassword(auth, email, senha)
@@ -64,11 +69,12 @@ function Registrar() {
                 <input onChange={e => setSenha(e.target.value)} type="password" className="form-control form-control-registrar" id="floatingPassword" placeholder="Password" />
                 <label htmlFor="floatingPassword">Senha</label>
             </div>
-
             <div className="form-floating">
-                <input type="password" className="form-control form-control-registrar" id="floatingConfirmPassword" placeholder="Password" />
+                <input onChange={e => setConfirmarSenha(e.target.value)} type="password" className="form-control form-control-registrar" id="floatingConfirmPassword" placeholder="Password" />
                 <label htmlFor="floatingPassword">Confirmar Senha</label>
             </div>
+
+        
 
             <button className="w-100 btn btn-lg btn-success" type="button" onClick={RegistrarUsuario}>Criar conta</button>
 

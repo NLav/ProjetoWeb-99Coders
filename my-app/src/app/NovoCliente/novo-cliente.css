@@ -10,6 +10,7 @@
 .form-cadastro-cliente {
     max-width: 350px;
     margin: auto;
+    text-align: left;
 }
 
 .form-control {

@@ -1,6 +1,7 @@
 import { addDoc, collection } from "firebase/firestore";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import TelefoneInput from "../Componentes/Input Mask/telefone-cadastro-cliente";
 import db from "../Config/firebase";
 import "./novo-cliente.css";
 
@@ -37,19 +38,13 @@ function NovoCliente() {
 
             <h1 className="h3 mb-3 fw-normal">Cadastre um novo cliente</h1>
 
-            <div className="form-floating">
-                <input onChange={e => setNome(e.target.value)} type="text" className="form-control form-control-cadastro-cliente" id="floatingName" placeholder="Name" />
-                <label htmlFor="floatingName">Nome completo</label>
-            </div>
-            <div className="form-floating">
-                <input onChange={e => setEmail(e.target.value)} type="email" className="form-control form-control-cadastro-cliente" id="floatingEmail" placeholder="name@example.com" />
-                <label htmlFor="floatingInput">Endereço de e-mail</label>
-            </div>
-            <div className="form-floating">
-                <input onChange={e => setTelefone(e.target.value)} type="text" className="form-control form-control-cadastro-cliente" id="floatingTelefone" placeholder="name@example.com" />
-                <label htmlFor="floatingInput">Número de telefone</label>
-            </div>
-
+            <label htmlFor="name" className="lbl-cadastro-cliente" >Nome</label>
+            <input onChange={e => setNome(e.target.value)} type="text" className="form-control form-control-cadastro-cliente" id="name" placeholder="Nome" />
+            <label htmlFor="email" className="lbl-cadastro-cliente" >Endereço de e-mail</label>
+            <input onChange={e => setEmail(e.target.value)} type="email" className="form-control form-control-cadastro-cliente" id="email" placeholder="nome@exemplo.com" />
+            <label htmlFor="telefone" className="lbl-cadastro-cliente" >Número de telefone</label>
+            <TelefoneInput onChange={e => setTelefone(e.target.value)} type="text" className="form-control form-control-cadastro-cliente" id="telefone" placeholder="(00) 0000-0000" />
+            
             <div className="row justify-content-center">
                 <Link to={"/app/home"} className="btn btn btn-danger btn-cadastro-cliente">Cancelar</Link>
                 <button onClick={CadastrarCliente} className="btn btn btn-success btn-cadastro-cliente" type="button">Adicionar</button>
