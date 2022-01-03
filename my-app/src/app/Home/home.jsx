@@ -29,31 +29,26 @@ function Home() {
         })
     }, [busca])
 
-    return <section>
-        <section className="section-home mx-auto">
-            <Navbar />
-            <div className="container-fluid titulo-clientes">
-                <h1>Clientes</h1>
-                <div className="row mb-3">
-                    <div className="col-4">
-                        <Link to="/app/novocliente" className="btn btn-outline-success btn-cliente-adicionar">Adicionar cliente</Link>
-                    </div>
-                    <div className="col-1">
-
-                    </div>
-
-                    <div className="col-7">
-                        <form className="input-group justify-content-end">
-                            <input onChange={e => setBusca(e.target.value)} type="search" className="form-control form-control-busca" placeholder="Pesquisar por nome" />
-                            <div className="input-group-append">
-                                <button className="btn btn-outline-success btn-cliente-busca" type="button">Buscar</button>
-                            </div>
-                        </form>
-                    </div>
+    return <section className="section-home">
+        <Navbar />
+        <div className="container-fluid titulo-clientes">
+            <h1>Clientes</h1>
+            <div className="row mb-3">
+                <div className="col-4">
+                    <Link to="/app/novocliente" className="btn btn-outline-success btn-cliente-adicionar">Adicionar cliente</Link>
                 </div>
-                <ListaClientes arrayClientes={clientes} />
+                <div className="col-1">
+
+                </div>
+
+                <div className="col-7">
+                    <form className="input-group justify-content-end">
+                        <input onChange={e => setBusca(e.target.value)} type="search" className="form-control form-control-busca" placeholder="Pesquisar por nome" />
+                    </form>
+                </div>
             </div>
-        </section>
+            <ListaClientes arrayClientes={clientes} />
+        </div>
     </section>
 }
 

@@ -2,9 +2,8 @@
     background-color: #2F3136;
     color: #E8641B;
     text-align: left;
-    border-top: 1px solid #E8641B;
-    border-bottom: 1px solid #E8641B;
     height: 100vh;
+    border: none;
 }
 
 .titulo-clientes {
