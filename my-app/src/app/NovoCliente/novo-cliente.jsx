@@ -35,6 +35,12 @@ function NovoCliente() {
     return <section className="d-flex" id="section-cadastro-cliente">
 
         <form action="/app/home" className="form-cadastro-cliente">
+        
+        <div className="text-center">
+            <a href="/">
+                <img className="mb-4" src="/Images/logo_nr-crm-small.png" alt="" width="72" height="72" />
+            </a>
+        </div>
 
             <h1 className="h3 mb-3 fw-normal">Cadastre um novo cliente</h1>
 
@@ -44,7 +50,7 @@ function NovoCliente() {
             <input onChange={e => setEmail(e.target.value)} type="email" className="form-control form-control-cadastro-cliente" id="email" placeholder="nome@exemplo.com" />
             <label htmlFor="telefone" className="lbl-cadastro-cliente" >Número de telefone</label>
             <TelefoneInput onChange={e => setTelefone(e.target.value)} value={telefone} type="text" className="form-control form-control-cadastro-cliente" id="telefone" placeholder="(00) 0000-0000" />
-            
+
             <div className="row justify-content-center">
                 <Link to={"/app/home"} className="btn btn btn-danger btn-cadastro-cliente">Cancelar</Link>
                 <button onClick={CadastrarCliente} className="btn btn btn-success btn-cadastro-cliente" type="button">Adicionar</button>

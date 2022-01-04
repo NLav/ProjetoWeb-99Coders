@@ -51,6 +51,11 @@ function EditarCliente(props) {
     return <section className="d-flex" id="section-editar-cliente">
 
         <form action="/app/home" className="form-editar-cliente">
+            <div className="text-center">
+                <a href="/">
+                    <img className="mb-4" src="/Images/logo_nr-crm-small.png" alt="" width="72" height="72" />
+                </a>
+            </div>
 
             <h1 className="h3 mb-3 fw-normal">Editar os dados do cliente</h1>
 

@@ -24,7 +24,7 @@ function ListaClientes(props) {
                         <th scope="col">{cliente.telefone}</th>
                         <th scope="col" className="text-center">
                             <Link to={"/app/editarcliente/" + cliente.id} className="me-2 ms-auto"><img className="img-icon-acoes" src="/Images/ic_edit.png" /></Link>
-                            <Link to={"/app/editarcliente/" + cliente.id} className="ms-2 me-auto"><img className="img-icon-acoes" src="/Images/ic_delete.png" /></Link>
+                            <Link to="#" onClick={() => props.clickDeletar(cliente.id)} className="ms-2 me-auto"><img className="img-icon-acoes" src="/Images/ic_delete.png" /></Link>
                         </th>
                     </tr>
                 )

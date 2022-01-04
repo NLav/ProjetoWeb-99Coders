@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { collection, onSnapshot } from "firebase/firestore";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { collection, deleteDoc, doc, getDocs, onSnapshot, query, where } from "firebase/firestore";
 import db from "../Config/firebase";
 import ListaClientes from "../Componentes/ListaCliente/lista-cliente";
 import Navbar from "../Componentes/Navbar/navbar";
@@ -10,12 +10,26 @@ function Home() {
 
     const [clientes, setClientes] = useState([]);
     const [busca, setBusca] = useState("");
+    const [excluido, setExcluido] = useState("");
+    const [mensagem, setMensagem] = useState("");
 
     let filtroClientes = [];
+    let navigate = useNavigate();
+
+    const q = query(collection(db, "clientes"));
+
+    const querySnapshot = getDocs(q);
+
+    function deletarCliente(id) {
+        deleteDoc(doc(db, "clientes", id)).then(() => {
+            setExcluido(id);
+        });
+    }
 
     useEffect(() => {
-        onSnapshot(collection(db, "clientes"), clientes => {
-            clientes.docs.forEach(cliente => {
+
+        querySnapshot.then(clientes => {
+            clientes.docs.map((cliente) => {
                 if (cliente.data().nome.toLowerCase().indexOf(busca) >= 0) {
                     filtroClientes.push({
                         id: cliente.id,
@@ -25,9 +39,16 @@ function Home() {
                     });
                 }
             })
-            setClientes(filtroClientes)
+            setClientes(filtroClientes);
         })
-    }, [busca])
+
+        if (clientes.length === 0) {
+            setMensagem("Nenhum cliente cadastrado!")
+        } else {
+            setMensagem("");
+        }
+
+    }, [busca, excluido, clientes])
 
     return <section className="section-home">
         <Navbar />
@@ -47,7 +68,10 @@ function Home() {
                     </form>
                 </div>
             </div>
-            <ListaClientes arrayClientes={clientes} />
+            <ListaClientes arrayClientes={clientes} clickDeletar={deletarCliente} />
+            {
+                mensagem !== "" ? <div className="alert alert-primary text-center mt-2"> {mensagem} </div> : null
+            }
         </div>
     </section>
 }
