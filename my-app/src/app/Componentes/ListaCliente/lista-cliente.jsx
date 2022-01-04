@@ -4,14 +4,6 @@ import "./lista-cliente.css";
 
 function ListaClientes(props) {
 
-    function editarUsuario(id) {
-        alert("editar usuario" + id);
-    }
-    
-    function deletarUsuario(id) {
-        alert("deletar usuario" + id);
-    }
-
     return <table className="table table-dark table-hover table-bordered mx-auto">
         <thead>
             <tr>
@@ -31,8 +23,8 @@ function ListaClientes(props) {
                         <th scope="col">{cliente.email}</th>
                         <th scope="col">{cliente.telefone}</th>
                         <th scope="col" className="text-center">
-                            <Link to="#" onClick={() => editarUsuario(cliente.id)} className="me-2 ms-auto"><img className="img-icon-acoes" src="/Images/ic_edit.png" /></Link>
-                            <Link to="#" onClick={() => deletarUsuario(cliente.id)} className="ms-2 me-auto"><img className="img-icon-acoes" src="/Images/ic_delete.png" /></Link>
+                            <Link to={"/app/editarcliente/" + cliente.id} className="me-2 ms-auto"><img className="img-icon-acoes" src="/Images/ic_edit.png" /></Link>
+                            <Link to={"/app/editarcliente/" + cliente.id} className="ms-2 me-auto"><img className="img-icon-acoes" src="/Images/ic_delete.png" /></Link>
                         </th>
                     </tr>
                 )

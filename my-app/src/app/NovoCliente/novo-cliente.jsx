@@ -1,7 +1,7 @@
 import { addDoc, collection } from "firebase/firestore";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import TelefoneInput from "../Componentes/Input Mask/telefone-cadastro-cliente";
+import TelefoneInput from "../Componentes/Input Mask/telefone-cliente";
 import db from "../Config/firebase";
 import "./novo-cliente.css";
 

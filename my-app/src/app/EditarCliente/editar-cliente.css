@@ -1,0 +1,30 @@
+#section-editar-cliente {
+    background-color: #2F3136;
+    border: none;
+    color: #E8641B;
+    overflow: auto;
+    height: 100vh;
+    min-width: 50vh;
+}
+
+.form-editar-cliente {
+    max-width: 350px;
+    margin: auto;
+    text-align: left;
+}
+
+.form-control {
+    background-color: #2F3136;
+    color: lightgray;
+}
+
+.form-control-editar-cliente {
+    background-color: #2F3136;
+    margin-bottom: 10px;
+    border: 1px solid #E8641B;
+}
+
+.btn-editar-cliente {
+    width: 40%;
+    margin: 0px 10px 0px 10px;
+}
