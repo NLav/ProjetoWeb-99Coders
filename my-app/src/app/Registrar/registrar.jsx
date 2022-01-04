@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import Swal from "sweetalert2";
 import "./registrar.css";
 
 function Registrar() {
@@ -34,8 +35,14 @@ function Registrar() {
 
             createUserWithEmailAndPassword(auth, email, senha)
                 .then(firebaseUser => {
-                    alert("Usuário cadastrado com sucesso!");
-                    navigate("/app");
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Sucesso',
+                        text: 'Usuário cadastrado com sucesso!',
+                        background: '#000',
+                        color: "#FFF",
+                        confirmButtonColor: "#E8641B"
+                      }).then(navigate("/app"));
                 })
                 .catch(error => {
 

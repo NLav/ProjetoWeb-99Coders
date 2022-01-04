@@ -2,14 +2,14 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAWvRCBRvxjrtGCZmxJoJ3WlGpZPuaHXJw",
-  authDomain: "nr-crm-99.firebaseapp.com",
-  projectId: "nr-crm-99",
-  storageBucket: "nr-crm-99.appspot.com",
-  messagingSenderId: "972539311786",
-  appId: "1:972539311786:web:e45276b771a9f3e31e02d3"
+  apiKey: "AIzaSyAH7y2POodrgDA8rCSfTB6ENHO4gt-W2jw",
+  authDomain: "nr-crm.firebaseapp.com",
+  projectId: "nr-crm",
+  storageBucket: "nr-crm.appspot.com",
+  messagingSenderId: "760067045326",
+  appId: "1:760067045326:web:30fc002734964c73481d9f"
 };
 
-const appFirebase = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
 export default getFirestore();

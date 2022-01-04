@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { collection, deleteDoc, doc, getDocs, onSnapshot, query, where } from "firebase/firestore";
 import db from "../Config/firebase";
+import Swal from "sweetalert2"
 import ListaClientes from "../Componentes/ListaCliente/lista-cliente";
 import Navbar from "../Componentes/Navbar/navbar";
 import "./home.css";
@@ -15,10 +16,57 @@ function Home() {
 
     let filtroClientes = [];
 
+    const swalConfirmacaoDeletarCliente = Swal.mixin({
+        customClass: {
+            confirmButton: "btn btn-success",
+            cancelButton: "btn btn-danger"
+        },
+        buttonsStyling: false
+    })
+
     function deletarCliente(id) {
         deleteDoc(doc(db, "clientes", id)).then(() => {
             setExcluido(id);
         });
+    }
+
+    function dialogDeletarCliente(id) {
+        swalConfirmacaoDeletarCliente.fire({
+            title: "Tem certeza?",
+            text: "O cliente " + id + " será deletado. Essa ação não poderá ser desfeita!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Sim, delete!",
+            cancelButtonText: "Não, cancele!",
+            reverseButtons: true,
+            background: '#000',
+            color: "#FFF",
+            confirmButtonColor: "#E8641B"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                swalConfirmacaoDeletarCliente.fire({
+                    title: "Deletado!",
+                    text: "O cliente " + id + " foi deletado.",
+                    icon: "success",
+                    background: '#000',
+                    color: "#FFF",
+                    confirmButtonColor: "#E8641B"
+                })
+                deletarCliente(id);
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalConfirmacaoDeletarCliente.fire({
+                    title: "Cancelado!",
+                    text: "A ação foi cancelada, o cliente " + id + " não foi deletado!",
+                    icon: "error",
+                    background: '#000',
+                    color: "#FFF",
+                    confirmButtonColor: "#E8641B"
+                })
+            }
+        })
+
     }
 
     useEffect(() => {
@@ -34,16 +82,17 @@ function Home() {
                     });
                 }
             })
-            setClientes(filtroClientes);
+            if (filtroClientes.length === 0) {
+                setMensagem("Nenhum cliente cadastrado!")
+            } else {
+                setMensagem("");
+            }
+
+            setClientes(filtroClientes);            
         })
+        
 
-        if (clientes.length === 0) {
-            setMensagem("Nenhum cliente cadastrado!")
-        } else {
-            setMensagem("");
-        }
-
-    }, [busca, excluido, clientes])
+    }, [busca, excluido])
 
     return <section className="section-home">
         <Navbar />
@@ -63,7 +112,7 @@ function Home() {
                     </form>
                 </div>
             </div>
-            <ListaClientes arrayClientes={clientes} clickDeletar={deletarCliente} />
+            <ListaClientes arrayClientes={clientes} clickDeletar={dialogDeletarCliente} />
             {
                 mensagem !== "" ? <div className="alert alert-primary text-center mt-2"> {mensagem} </div> : null
             }
