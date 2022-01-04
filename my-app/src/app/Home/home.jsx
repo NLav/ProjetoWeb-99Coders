@@ -14,11 +14,6 @@ function Home() {
     const [mensagem, setMensagem] = useState("");
 
     let filtroClientes = [];
-    let navigate = useNavigate();
-
-    const q = query(collection(db, "clientes"));
-
-    const querySnapshot = getDocs(q);
 
     function deletarCliente(id) {
         deleteDoc(doc(db, "clientes", id)).then(() => {
@@ -28,7 +23,7 @@ function Home() {
 
     useEffect(() => {
 
-        querySnapshot.then(clientes => {
+        getDocs(query(collection(db, "clientes"))).then(clientes => {
             clientes.docs.map((cliente) => {
                 if (cliente.data().nome.toLowerCase().indexOf(busca) >= 0) {
                     filtroClientes.push({
