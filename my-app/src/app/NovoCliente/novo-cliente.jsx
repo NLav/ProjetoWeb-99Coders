@@ -43,7 +43,7 @@ function NovoCliente() {
             <label htmlFor="email" className="lbl-cadastro-cliente" >Endereço de e-mail</label>
             <input onChange={e => setEmail(e.target.value)} type="email" className="form-control form-control-cadastro-cliente" id="email" placeholder="nome@exemplo.com" />
             <label htmlFor="telefone" className="lbl-cadastro-cliente" >Número de telefone</label>
-            <TelefoneInput onChange={e => setTelefone(e.target.value)} type="text" className="form-control form-control-cadastro-cliente" id="telefone" placeholder="(00) 0000-0000" />
+            <TelefoneInput onChange={e => setTelefone(e.target.value)} value={telefone} type="text" className="form-control form-control-cadastro-cliente" id="telefone" placeholder="(00) 0000-0000" />
             
             <div className="row justify-content-center">
                 <Link to={"/app/home"} className="btn btn btn-danger btn-cadastro-cliente">Cancelar</Link>
@@ -51,7 +51,7 @@ function NovoCliente() {
             </div>
 
             {
-                mensagem !== "" ? <div className="alert alert-danger mt-2"> {mensagem} </div> : null
+                mensagem !== "" ? <div className="alert alert-danger mt-2 text-center"> {mensagem} </div> : null
             }
 
         </form>

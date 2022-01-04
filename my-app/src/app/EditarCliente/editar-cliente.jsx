@@ -65,7 +65,7 @@ function EditarCliente(props) {
 
             <div className="row justify-content-center">
                 <Link to={"/app/home"} className="btn btn btn-danger btn-editar-cliente">Cancelar</Link>
-                <button onClick={AlterarCliente} className="btn btn btn-success btn-editar-cliente" type="button">Adicionar</button>
+                <button onClick={AlterarCliente} className="btn btn btn-success btn-editar-cliente" type="button">Salvar</button>
             </div>
 
             {
