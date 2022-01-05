@@ -1,8 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Context/auth";
 import "./navbar.css";
 
 function Navbar() {
+
+  const navigate = useNavigate();
+  const { setLogado } = React.useContext(AuthContext);
+  
+  function SairApp() {
+    localStorage.setItem("logado", "N");
+    setLogado(false);
+    navigate("/app");
+  }
+
   return <nav id="navbar" className="navbar fixed-top navbar-expand-lg navbar-dark">
     <div className="container">
       <Link className="navbar-brand" to={"/app/home"}>
@@ -19,8 +30,8 @@ function Navbar() {
           <li className="nav-item">
             <Link to={"/app/novocliente"} className="nav-link">Cadastrar cliente</Link>
           </li>
-          <li className="nav-item">
-            <Link to={"/app"} className="nav-link">Sair</Link>
+          <li className="nav-item sair">
+            <a onClick={SairApp} href="/app" className="nav-link" aria-current="page">Sair</a>
           </li>
         </ul>
       </div>

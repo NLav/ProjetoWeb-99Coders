@@ -15,6 +15,10 @@ input {
     background-color: #2F3136;
 }
 
+.navbar .sair {
+    cursor: pointer;
+}
+
 .border {
     border-bottom: #E8641B;
     color: #E8641B;

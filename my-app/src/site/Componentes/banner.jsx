@@ -9,7 +9,7 @@ function Banner() {
                     <h1>Consultoria para sua pequena, média ou grande empresa</h1>
                 </div>
                 <div className="col-lg-6 mt-3">
-                    <img src="Images/print_vs-code.png" alt="printscreen_banner"/>
+                    <img src="/Images/print_vs-code.png" alt="printscreen_banner"/>
                 </div>
             </div>
             <div className="row container container-banner-crm">

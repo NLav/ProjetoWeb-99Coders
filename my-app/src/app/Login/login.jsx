@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import { getAuth, signInWithEmailAndPassword  } from "firebase/auth";
+import { AuthContext } from "../Context/auth";
 import "./login.css";
 
 function Login() {
@@ -12,6 +13,7 @@ function Login() {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [erro, setErro] = useState("N");
+    const { setLogado } = React.useContext(AuthContext);
     
     const auth = getAuth();
 
@@ -22,11 +24,15 @@ function Login() {
         } else {
             signInWithEmailAndPassword(auth, email, senha)
                 .then(firebaseUser => {
+                    localStorage.setItem("logado", "S");
                     setErro("N");
+                    setLogado(true);
                     navigate("/app/home");
                 })
                 .catch(error => {
+                    localStorage.setItem("logado", "N");
                     setErro("S");
+                    setLogado(false);
                 });
         }
     }
@@ -35,7 +41,7 @@ function Login() {
 
         <form action="/app/home" className="form-sign">
             <a href="/">
-                <img className="mb-4" src="Images/logo_nr-dev-con-small.png" alt="" width="72" height="72" />
+                <img className="mb-4" src="/Images/logo_nr-dev-con-small.png" alt="" width="72" height="72" />
             </a>
             
             <h1 className="h3 mb-3 fw-normal">Acesse sua conta</h1>
