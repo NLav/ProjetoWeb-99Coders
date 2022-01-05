@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Site from "./site/site";
 import Login from "./app/Login/login";
 import Registrar from "./app/Registrar/registrar";
@@ -12,20 +12,9 @@ import { AuthContext } from "./app/Context/auth";
 function App() {
 
     const { logado } = useContext(AuthContext);
-/*
-    function SecureRoute({ ...params }) {
-        const navigate = useNavigate();
-        if (!logado) {
-            return navigate("/app");
-        } else {
-            return <Route {...params} />
-        }
-    }
-*/    
 
     return <BrowserRouter>
         <Routes>
-            
             <Route exact path="/" element={<Site />} />
             <Route exact path="/app" element={<Login />} />
             <Route exact path="/app/registrar" element={<Registrar />} />
