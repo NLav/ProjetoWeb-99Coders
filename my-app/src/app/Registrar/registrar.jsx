@@ -36,10 +36,10 @@ function Registrar() {
             createUserWithEmailAndPassword(auth, email, senha)
                 .then(firebaseUser => {
                     Swal.fire({
-                        icon: 'success',
-                        title: 'Sucesso',
-                        text: 'Usuário cadastrado com sucesso!',
-                        background: '#000',
+                        icon: "success",
+                        title: "Sucesso",
+                        text: "Usuário cadastrado com sucesso!",
+                        background: "#000",
                         color: "#FFF",
                         confirmButtonColor: "#E8641B"
                       }).then(navigate("/app"));

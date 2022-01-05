@@ -39,7 +39,7 @@ function Home() {
             confirmButtonText: "Sim, delete!",
             cancelButtonText: "Não, cancele!",
             reverseButtons: true,
-            background: '#000',
+            background: "#000",
             color: "#FFF",
             confirmButtonColor: "#E8641B"
         }).then((result) => {
@@ -48,7 +48,7 @@ function Home() {
                     title: "Deletado!",
                     text: "O cliente " + id + " foi deletado.",
                     icon: "success",
-                    background: '#000',
+                    background: "#000",
                     color: "#FFF",
                     confirmButtonColor: "#E8641B"
                 })
@@ -60,7 +60,7 @@ function Home() {
                     title: "Cancelado!",
                     text: "A ação foi cancelada, o cliente " + id + " não foi deletado!",
                     icon: "error",
-                    background: '#000',
+                    background: "#000",
                     color: "#FFF",
                     confirmButtonColor: "#E8641B"
                 })

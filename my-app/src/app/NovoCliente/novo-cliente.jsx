@@ -48,7 +48,7 @@ function NovoCliente() {
             confirmButtonText: "Sim",
             cancelButtonText: "Não",
             reverseButtons: true,
-            background: '#000',
+            background: "#000",
             color: "#FFF",
             confirmButtonColor: "#E8641B"
         }).then((result) => {

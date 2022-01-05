@@ -31,8 +31,8 @@ function App() {
             <Route exact path="/app/registrar" element={<Registrar />} />
             <Route exact path="/app/mudarsenha" element={<MudarSenha />} />
             <Route exact path="/app/home" element={logado ? <Home /> : <Login />} />
-            <Route exact path="/app/novocliente" element={logado ? <NovoCliente /> : <Home />} />
-            <Route exact path="/app/editarcliente/:id" element={logado ? <EditarCliente /> : <Home />} />
+            <Route exact path="/app/novocliente" element={logado ? <NovoCliente /> : <Login />} />
+            <Route exact path="/app/editarcliente/:id" element={logado ? <EditarCliente /> : <Login />} />
         </Routes>
     </BrowserRouter>
 }
