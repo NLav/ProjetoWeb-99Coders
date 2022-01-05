@@ -1,6 +1,6 @@
-import { addDoc, collection, doc, DocumentSnapshot, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TelefoneInput from "../Componentes/Input Mask/telefone-cliente";
 import db from "../Config/firebase";
 import "./editar-cliente.css";
@@ -14,20 +14,15 @@ function EditarCliente(props) {
 
     let navigate = useNavigate();
 
-    const [searchParams, setSearchParams] = useSearchParams();
-
     const url = window.location.href;
     const clienteId = url.split("/").pop();
 
     useEffect(() => {
-
-
         getDoc(doc(db, "clientes", clienteId)).then((r) => {
             setNome(r.data().nome);
             setEmail(r.data().email);
             setTelefone(r.data().telefone);
         })
-
     }, [])
 
     function AlterarCliente() {

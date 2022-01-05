@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import TelefoneInput from "../Componentes/Input Mask/telefone-cliente";
 import db from "../Config/firebase";
+import Swal from "sweetalert2";
 import "./novo-cliente.css";
 
 function NovoCliente() {
@@ -12,10 +13,17 @@ function NovoCliente() {
     const [telefone, setTelefone] = useState("");
     const [mensagem, setMensagem] = useState("");
 
+    const swalDialogCadastroCliente = Swal.mixin({
+        customClass: {
+            confirmButton: "btn btn-success ms-3",
+            cancelButton: "btn btn-danger"
+        },
+        buttonsStyling: false
+    })
+
     let navigate = useNavigate();
 
     function CadastrarCliente() {
-
         if (nome.length === 0 || email.length === 0 || telefone.length === 0) {
             setMensagem("Preencha todos os campos!");
         } else {
@@ -25,22 +33,44 @@ function NovoCliente() {
                 telefone: telefone
             }).then(() => {
                 setMensagem("");
-                navigate("/app/home");
+                dialogCadastrarCliente();
             }).catch((erro) => {
                 setMensagem(erro);
             });
         }
     }
 
+    function dialogCadastrarCliente() {
+        swalDialogCadastroCliente.fire({
+            text: "Gostaria de cadastrar outro cliente?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Sim",
+            cancelButtonText: "Não",
+            reverseButtons: true,
+            background: '#000',
+            color: "#FFF",
+            confirmButtonColor: "#E8641B"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.reload();
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                navigate("/app/home");
+            }
+        })
+    }
+
     return <section className="d-flex" id="section-cadastro-cliente">
 
         <form action="/app/home" className="form-cadastro-cliente">
-        
-        <div className="text-center">
-            <a href="/">
-                <img className="mb-4" src="/Images/logo_nr-crm-small.png" alt="" width="72" height="72" />
-            </a>
-        </div>
+
+            <div className="text-center">
+                <a href="/">
+                    <img className="mb-4" src="/Images/logo_nr-crm-small.png" alt="" width="72" height="72" />
+                </a>
+            </div>
 
             <h1 className="h3 mb-3 fw-normal">Cadastre um novo cliente</h1>
 

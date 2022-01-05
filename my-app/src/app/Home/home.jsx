@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import { collection, deleteDoc, doc, getDocs, onSnapshot, query, where } from "firebase/firestore";
+import { Link } from "react-router-dom";
+import { collection, deleteDoc, doc, getDocs, query } from "firebase/firestore";
 import db from "../Config/firebase";
 import Swal from "sweetalert2"
 import ListaClientes from "../Componentes/ListaCliente/lista-cliente";
@@ -18,7 +18,7 @@ function Home() {
 
     const swalConfirmacaoDeletarCliente = Swal.mixin({
         customClass: {
-            confirmButton: "btn btn-success",
+            confirmButton: "btn btn-success ms-3",
             cancelButton: "btn btn-danger"
         },
         buttonsStyling: false
@@ -87,11 +87,8 @@ function Home() {
             } else {
                 setMensagem("");
             }
-
             setClientes(filtroClientes);            
         })
-        
-
     }, [busca, excluido])
 
     return <section className="section-home">

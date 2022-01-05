@@ -3,7 +3,7 @@ import React from "react";
 function Menu() {
     return <nav id="menu" className="navbar fixed-top navbar-expand-lg navbar-dark">
     <div className="container">
-      <a className="navbar-brand" href="#">
+      <a className="navbar-brand" href="#banner">
           <img className="me-2" src="Images/logo_nr-dev-con.png" alt="" height="50" />
       </a>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
