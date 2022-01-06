@@ -23,8 +23,8 @@ function ListaClientes(props) {
                         <th scope="col">{cliente.email}</th>
                         <th scope="col">{cliente.telefone}</th>
                         <th scope="col" className="text-center">
-                            <Link to={"/app/editarcliente/" + cliente.id} className="me-2 ms-auto"><img className="img-icon-acoes" src="/Images/ic_edit.png" alt="edit-icon" /></Link>
-                            <Link to="#" onClick={() => props.clickDeletar(cliente.id)} className="ms-2 me-auto"><img className="img-icon-acoes" src="/Images/ic_delete.png" alt="delete-icon" /></Link>
+                            <Link to={"/reactn/app/editarcliente/" + cliente.id} className="me-2 ms-auto"><img className="img-icon-acoes" src="/reactn/Images/ic_edit.png" alt="edit-icon" /></Link>
+                            <Link to="#" onClick={() => props.clickDeletar(cliente.id)} className="ms-2 me-auto"><img className="img-icon-acoes" src="/reactn/Images/ic_delete.png" alt="delete-icon" /></Link>
                         </th>
                     </tr>
                 )

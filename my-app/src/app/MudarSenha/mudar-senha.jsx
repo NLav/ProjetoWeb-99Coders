@@ -44,8 +44,8 @@ function MudarSenha() {
     return <section className="d-flex align-items-center text-center form-container" id="section-mudar-senha">
 
         <form className="form-sign">
-            <a href="/">
-                <img className="mb-4" src="/Images/logo_nr-dev-con-small.png" alt="" width="72" height="72" />
+            <a href="/reactn">
+                <img className="mb-4" src="/reactn/Images/logo_nr-dev-con-small.png" alt="" width="72" height="72" />
             </a>
             <h1 className="h3 mb-3 fw-normal">Recuperação de senha</h1>
 
@@ -57,7 +57,7 @@ function MudarSenha() {
             <button onClick={EnviarEmail} className="w-100 btn btn-lg btn-success" type="button">Enviar</button>
 
             <div className="link-voltar-login mt-2 text-start">
-                <Link to={"/app"}>Voltar para a tela de login</Link>
+                <Link to={"/reactn/app"}>Voltar para a tela de login</Link>
             </div>
 
             {
@@ -68,7 +68,7 @@ function MudarSenha() {
                         : <div className="alert alert-danger mt-2"> {mensagem} </div>
             }
 
-            <Link to={"/app/registrar"} className="w-100 btn btn-lg btn-outline-primary mt-5">Criar conta</Link>
+            <Link to={"/reactn/app/registrar"} className="w-100 btn btn-lg btn-outline-primary mt-5">Criar conta</Link>
 
             <p className="mt-5 mb-3 text-muted">Desenvolvido por NR Desenvolvimento e Consultoria - {ano}</p>
         </form>

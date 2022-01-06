@@ -14,21 +14,21 @@ function Testemunhos() {
             </div>
         <div className="carousel-inner">
             <div className="carousel-item active">
-            <img src="/Images/img_testemunhos_1.jpg" className="d-block w-75 ms-auto me-auto" alt="..." />
+            <img src="/reactn/Images/img_testemunhos_1.jpg" className="d-block w-75 ms-auto me-auto" alt="..." />
             <div className="carousel-caption d-none d-md-block bg-white bg-opacity-50">
                 <h5>Angélico Advogados</h5>
                 <p>Ótimo serviço prestado desde sempre!</p>
             </div>
             </div>
             <div className="carousel-item">
-            <img src="/Images/img_testemunhos_2.png" className="d-block w-75 ms-auto me-auto" alt="..." />
+            <img src="/reactn/Images/img_testemunhos_2.png" className="d-block w-75 ms-auto me-auto" alt="..." />
             <div className="carousel-caption d-none d-md-block bg-white bg-opacity-50">
                 <h5>Therma Automação e Projetos</h5>
                 <p>Trabalho de excelente qualidade!</p>
             </div>
             </div>
             <div className="carousel-item">
-            <img src="/Images/img_testemunhos_3.png" className="d-block w-75 ms-auto me-auto" alt="..." />
+            <img src="/reactn/Images/img_testemunhos_3.png" className="d-block w-75 ms-auto me-auto" alt="..." />
             <div className="carousel-caption d-none d-md-block bg-white bg-opacity-50">
                 <h5>Worth</h5>
                 <p>Atendimento digno e justo!</p>
