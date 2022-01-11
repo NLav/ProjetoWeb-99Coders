@@ -27,7 +27,7 @@ function Login() {
                     localStorage.setItem("logado", "S");
                     setErro("N");
                     setLogado(true);
-                    navigate("/reactn/app/home");
+                    navigate("/app/home");
                 })
                 .catch(error => {
                     localStorage.setItem("logado", "N");
@@ -39,9 +39,9 @@ function Login() {
     
     return <section className="d-flex align-items-center text-center form-container" id="section-login">
 
-        <form action="/reactn/app/home" className="form-sign">
-            <a href="/reactn">
-                <img className="mb-4" src="/reactn/Images/logo_nr-dev-con-small.png" alt="" width="72" height="72" />
+        <form action="/app/home" className="form-sign">
+            <a href="/">
+                <img className="mb-4" src="/Images/logo_nr-dev-con-small.png" alt="" width="72" height="72" />
             </a>
             
             <h1 className="h3 mb-3 fw-normal">Acesse sua conta</h1>
@@ -62,10 +62,10 @@ function Login() {
             }
             
             <div className="link-esqueci mt-2 text-start">
-                <Link to={"/reactn/app/mudarsenha"}>Esqueci minha senha</Link>
+                <Link to={"/app/mudarsenha"}>Esqueci minha senha</Link>
             </div>
 
-            <Link to={"/reactn/app/registrar"} className="w-100 btn btn-lg btn-outline-primary mt-5">Criar conta</Link>
+            <Link to={"/app/registrar"} className="w-100 btn btn-lg btn-outline-primary mt-5">Criar conta</Link>
 
             <p className="mt-5 mb-3 text-muted">Desenvolvido por NR Desenvolvimento e Consultoria - {ano}</p>
         </form>

@@ -57,18 +57,18 @@ function NovoCliente() {
             } else if (
                 result.dismiss === Swal.DismissReason.cancel
             ) {
-                navigate("/reactn/app/home");
+                navigate("/app/home");
             }
         })
     }
 
     return <section className="d-flex" id="section-cadastro-cliente">
 
-        <form action="/reactn/app/home" className="form-cadastro-cliente">
+        <form action="/app/home" className="form-cadastro-cliente">
 
             <div className="text-center">
-                <a href="/reactn">
-                    <img className="mb-4" src="/reactn/Images/logo_nr-crm-small.png" alt="" width="72" height="72" />
+                <a href="/">
+                    <img className="mb-4" src="/Images/logo_nr-crm-small.png" alt="" width="72" height="72" />
                 </a>
             </div>
 
@@ -82,7 +82,7 @@ function NovoCliente() {
             <TelefoneInput onChange={e => setTelefone(e.target.value)} value={telefone} type="text" className="form-control form-control-cadastro-cliente" id="telefone" placeholder="(00) 0000-0000" />
 
             <div className="row justify-content-center">
-                <Link to={"/reactn/app/home"} className="btn btn btn-danger btn-cadastro-cliente">Cancelar</Link>
+                <Link to={"/app/home"} className="btn btn btn-danger btn-cadastro-cliente">Cancelar</Link>
                 <button onClick={CadastrarCliente} className="btn btn btn-success btn-cadastro-cliente" type="button">Adicionar</button>
             </div>
 

@@ -42,7 +42,7 @@ function Registrar() {
                         background: "#000",
                         color: "#FFF",
                         confirmButtonColor: "#E8641B"
-                      }).then(navigate("/reactn/app"));
+                      }).then(navigate("/app"));
                 })
                 .catch(error => {
 
@@ -63,8 +63,8 @@ function Registrar() {
     return <section className="d-flex align-items-center text-center form-container" id="section-registrar">
 
         <form className="form-sign">
-            <a href="/reactn">
-                <img className="mb-4" src="/reactn/Images/logo_nr-dev-con-small.png" alt="" width="72" height="72" />
+            <a href="/">
+                <img className="mb-4" src="/Images/logo_nr-dev-con-small.png" alt="" width="72" height="72" />
             </a>
             <h1 className="h3 mb-3 fw-normal">Crie uma conta</h1>
 
@@ -90,7 +90,7 @@ function Registrar() {
             }
 
             <div className="link-possuo mt-2 text-start">
-                <Link to={"/reactn/app"}>Já possuo uma conta</Link>
+                <Link to={"/app"}>Já possuo uma conta</Link>
             </div>
 
             <p className="mt-5 mb-3 text-muted">Desenvolvido por NR Desenvolvimento e Consultoria - {ano}</p>

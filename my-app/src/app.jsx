@@ -15,13 +15,13 @@ function App() {
 
     return <BrowserRouter>
         <Routes>
-            <Route exact path="/reactn" element={<Site />} />
-            <Route exact path="/reactn/app" element={<Login />} />
-            <Route exact path="/reactn/app/registrar" element={<Registrar />} />
-            <Route exact path="/reactn/app/mudarsenha" element={<MudarSenha />} />
-            <Route exact path="/reactn/app/home" element={logado ? <Home /> : <Login />} />
-            <Route exact path="/reactn/app/novocliente" element={logado ? <NovoCliente /> : <Login />} />
-            <Route exact path="/reactn/app/editarcliente/:id" element={logado ? <EditarCliente /> : <Login />} />
+            <Route exact path="/" element={<Site />} />
+            <Route exact path="/app" element={<Login />} />
+            <Route exact path="/app/registrar" element={<Registrar />} />
+            <Route exact path="/app/mudarsenha" element={<MudarSenha />} />
+            <Route exact path="/app/home" element={logado ? <Home /> : <Login />} />
+            <Route exact path="/app/novocliente" element={logado ? <NovoCliente /> : <Login />} />
+            <Route exact path="/app/editarcliente/:id" element={logado ? <EditarCliente /> : <Login />} />
         </Routes>
     </BrowserRouter>
 }

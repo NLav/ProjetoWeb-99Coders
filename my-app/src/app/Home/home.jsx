@@ -97,7 +97,7 @@ function Home() {
             <h1>Clientes</h1>
             <div className="row mb-3">
                 <div className="col-4">
-                    <Link to="/reactn/app/novocliente" className="btn btn-outline-success btn-cliente-adicionar">Adicionar cliente</Link>
+                    <Link to="/app/novocliente" className="btn btn-outline-success btn-cliente-adicionar">Adicionar cliente</Link>
                 </div>
                 <div className="col-1">
 

@@ -15,7 +15,7 @@ function EditarCliente(props) {
     let navigate = useNavigate();
 
     const url = window.location.href;
-    const clienteId = url.split("/reactn").pop();
+    const clienteId = url.split("/").pop();
 
     useEffect(() => {
         getDoc(doc(db, "clientes", clienteId)).then((r) => {
@@ -36,7 +36,7 @@ function EditarCliente(props) {
                 telefone: telefone
             }).then(() => {
                 setMensagem("");
-                navigate("/reactn/app/home");
+                navigate("/app/home");
             }).catch((erro) => {
                 setMensagem(erro);
             });
@@ -45,10 +45,10 @@ function EditarCliente(props) {
 
     return <section className="d-flex" id="section-editar-cliente">
 
-        <form action="/reactn/app/home" className="form-editar-cliente">
+        <form action="/app/home" className="form-editar-cliente">
             <div className="text-center">
-                <a href="/reactn">
-                    <img className="mb-4" src="/reactn/Images/logo_nr-crm-small.png" alt="" width="72" height="72" />
+                <a href="/">
+                    <img className="mb-4" src="/Images/logo_nr-crm-small.png" alt="" width="72" height="72" />
                 </a>
             </div>
 
@@ -64,7 +64,7 @@ function EditarCliente(props) {
             <TelefoneInput onChange={e => setTelefone(e.target.value)} value={telefone} type="text" className="form-control form-control-editar-cliente" id="telefone" placeholder="(00) 0000-0000" />
 
             <div className="row justify-content-center">
-                <Link to={"/reactn/app/home"} className="btn btn btn-danger btn-editar-cliente">Cancelar</Link>
+                <Link to={"/app/home"} className="btn btn btn-danger btn-editar-cliente">Cancelar</Link>
                 <button onClick={AlterarCliente} className="btn btn btn-success btn-editar-cliente" type="button">Salvar</button>
             </div>
 
